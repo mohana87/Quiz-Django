@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <!-- Add any CSS styling here if needed -->
+</head>
+<body>
+    <h1>Quiz Result</h1>
+    
+    <p>Your Score: {{ score }} out of {{ total_questions }}</p>
+
+    <h2>Questions and Answers:</h2>
+    <ul>
+        {% for question, user_response in user_responses.items %}
+            <li>
+                <strong>{{ question }}</strong><br>
+                Your Answer: {{ user_response }}<br>
+                <!-- Add correct answer if needed -->
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add any additional feedback or information here -->
+    
+    <a href="{% url 'quiz_list' %}">Back to Quiz List</a>
+</body>
+</html>
